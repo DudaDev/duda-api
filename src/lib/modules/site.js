@@ -10,14 +10,9 @@ function createSiteHandler(fetcher) {
             return fetcher.get(`${SITE_ENDPOINT}byexternalid/${siteName}`);
         },
 
-        createSite(templateId, data) {
-            let body;
-            if (!data) {
-                body = {
-                    template_id: templateId,
-                };
-            }
-            return fetcher.post(`${SITE_ENDPOINT}create`, body);
+        createSite(templateId, options = {}) {
+            const data = {...options, template_id: templateId};
+            return fetcher.post(`${SITE_ENDPOINT}create`, data);
         },
 
         updateSite(siteName, data) {
@@ -40,19 +35,17 @@ function createSiteHandler(fetcher) {
             return fetcher.post(`${SITE_ENDPOINT}unpublish/${siteName}`);
         },
 
-        duplicateSite(siteName, data) {
+        duplicateSite(siteName, data = null) {
             return fetcher.post(`${SITE_ENDPOINT}duplicate/${siteName}`, data);
         },
 
-        resetSite(siteName, data) {
+        resetSite(siteName, data = null) {
             return fetcher.post(`${SITE_ENDPOINT}reset/${siteName}`, data);
         },
 
-        switchTemplate(siteName, data) {
-            return fetcher.post(
-                `${SITE_ENDPOINT}switchTemplate/${siteName}`,
-                data
-            );
+        switchTemplate(siteName, newTemplate) {
+            const data = {template_id: newTemplate}
+            return fetcher.post(`${SITE_ENDPOINT}switchTemplate/${siteName}`, data);
         },
     };
 }

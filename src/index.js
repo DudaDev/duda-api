@@ -2,16 +2,22 @@ const createFetcher = require('./lib/fetcher')
 const createSiteHandler = require('./lib/modules/site')
 const createTemplateHandler = require('./lib/modules/template')
 const createPageHandler = require('./lib/modules/page')
+const createAccountHandler = require('./lib/modules/account')
+const createContentHandler = require('./lib/modules/content')
+const createOtherHandler = require('./lib/modules/other')
 
-function createClient(token) {
+function createClient(token, baseURL = 'https://api.duda.co/api') {
     const fetcher = createFetcher({
-      token, // Get this from environment variable
-      baseURL: "https://api.duda.co/api" // this also can come from environment variable
+      token,
+      baseURL
     });
     return {
       ...createSiteHandler(fetcher),
       ...createTemplateHandler(fetcher),
-      ...createPageHandler(fetcher)
+      ...createPageHandler(fetcher),
+      ...createAccountHandler(fetcher),
+      ...createContentHandler(fetcher),
+      ...createOtherHandler(fetcher)
     };
 }
 
