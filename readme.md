@@ -8,7 +8,7 @@ See [API documentation](https://developer.duda.co/reference) for complete refere
 
 ## Installation
 
-Use the package manager [npm](https://pip.pypa.io/en/stable/) to install duda-api.
+Use the package manager [npm](https://npmjs.com) to install duda-api.
 
 ```bash
 npm install duda-api
@@ -18,7 +18,7 @@ npm install duda-api
 
 
 ```javascript
-const Duda = require('duda-api)
+const Duda = require('duda-api')
 
 // Initilize API
 const client = Duda(token) 
