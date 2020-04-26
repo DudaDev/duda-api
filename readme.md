@@ -17,14 +17,14 @@ npm install duda-api
 ## Usage
 
 
-```javscript
+```javascript
 const Duda = require('duda-api)
 
 // Initilize API
 const client = Duda(token) 
 
 //Fetach Site
-client.getSite(siteID).then(site => console.log(site))
+client.getSite(siteID).then(result => console.log(result))
 ```
 
 - Token - API Token (**required**)
@@ -33,10 +33,10 @@ client.getSite(siteID).then(site => console.log(site))
 ```javascript
 
 //create a new site
-client.createSite(siteName, options).then(site => console.log(site))
+client.createSite(siteName, options).then(result => console.log(result))
 
 //create a site from a template
-client.createFromSite(siteName, newTemplateName)
+client.createFromSite(siteName, newTemplateName).then(result => console.log(result))
 ```
 
 In general, the request's path and query paratmeters are passed as agruments and request body is passed as an object. However, 
