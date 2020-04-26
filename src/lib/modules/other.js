@@ -3,36 +3,34 @@ const SITE_ENDPOINT = `sites/multiscreen/`;
 function createOtherHandler(fetcher) {
     return {
         getAllBackups(siteName) {
-            return this.get(`${CONSTANTS.SITE_ENDPOINT}multiscreen/backups/${siteName}`);
+            return this.get(`${SITE_ENDPOINT}multiscreen/backups/${siteName}`);
         },
 
         createBackup(siteName, backupName) {
             const data = {
                 name: backupName,
             };
-            return this.post(`${CONSTANTS.SITE_ENDPOINT}backups/${siteName}/create`, data);
+            return this.post(`${SITE_ENDPOINT}backups/${siteName}/create`, data);
         },
 
         restoreSite(siteName, backupName) {
-            return this.post(`${CONSTANTS.SITE_ENDPOINT}backups/${siteName}/restore/${backupName}`);
+            return this.post(`${SITE_ENDPOINT}backups/${siteName}/restore/${backupName}`);
         },
 
         deleteBackup(siteName, backupName) {
-            return this.delete(
-                `${CONSTANTS.SITE_ENDPOINT}backups/${siteName}/restore/${backupName}`
-            );
+            return this.delete(`${SITE_ENDPOINT}backups/${siteName}/restore/${backupName}`);
         },
 
         generateSSLCerificate(siteName) {
-            return this.post(`${CONSTANTS.SITE_ENDPOINT}${siteName}/certificate`);
+            return this.post(`${SITE_ENDPOINT}${siteName}/certificate`);
         },
 
         renewSSLCerificate(siteName) {
-            return this.post(`${CONSTANTS.SITE_ENDPOINT}${siteName}/certificate/renew`);
+            return this.post(`${SITE_ENDPOINT}${siteName}/certificate/renew`);
         },
 
         deleteSSLCerificate(siteName) {
-            return this.delete(`${CONSTANTS.SITE_ENDPOINT}${siteName}/certificate`);
+            return this.delete(`${SITE_ENDPOINT}${siteName}/certificate`);
         },
 
         customCall(method, path, data = null) {
@@ -53,4 +51,3 @@ function createOtherHandler(fetcher) {
 }
 
 module.exports = createOtherHandler;
-

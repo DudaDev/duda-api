@@ -1,12 +1,12 @@
-const fetch = require("isomorphic-fetch");
+const fetch = require('node-fetch');
 
 function createFetcher({ token, baseURL }) {
     const requestParams = {
-        headers: new Headers({
+        headers: {
             Authorization: `Basic ${token}`,
-            "content-type": "application/json",
+            "Content-Type": "application/json",
             "User-Agent": "Duda REST API"
-        })
+        }
     };
     async function makeRequest(type, path, data) {
         requestParams.method = type;

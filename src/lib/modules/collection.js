@@ -14,11 +14,8 @@ function createCollectionHandler(fetcher) {
             return this.post(`${SITE_ENDPOINT}${siteName}/collection`, data);
         },
 
-        updateCollectionName(siteName, currentCollectionName, newCollectionName) {
-            return this.put(
-                `${SITE_ENDPOINT}${siteName}/collection/${currentCollectionName}`,
-                newCollectionName
-            );
+        updateCollectionName(siteName, CollectionName, data) {
+            return this.put(`${SITE_ENDPOINT}${siteName}/collection/${CollectionName}`, data);
         },
 
         deleteCollection(siteName, collectionName) {

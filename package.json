@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "start": "node index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1"
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "fetch-mock-jest": "^1.2.7",
+    "jest": "^25.4.0",
+    "sinon": "^9.0.2"
   }
 }
