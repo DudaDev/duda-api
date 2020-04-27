@@ -16,6 +16,13 @@
   "devDependencies": {
     "fetch-mock-jest": "^1.2.7",
     "jest": "^25.4.0",
+    "jest-fetch-mock": "^3.0.3",
     "sinon": "^9.0.2"
+  },
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
   }
 }
