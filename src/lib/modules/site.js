@@ -35,11 +35,15 @@ function createSiteHandler(fetcher) {
             return fetcher.post(`${SITE_ENDPOINT}unpublish/${siteName}`);
         },
 
-        duplicateSite(siteName, data = null) {
+        duplicateSite(siteName, data = {}) {
             return fetcher.post(`${SITE_ENDPOINT}duplicate/${siteName}`, data);
         },
 
-        resetSite(siteName, data = null) {
+        resetSite(siteName, templateId, removeBizInfos = false) {
+            const data = {
+                template_id: templateId,
+                site_data: {removeBizInfos}
+            }
             return fetcher.post(`${SITE_ENDPOINT}reset/${siteName}`, data);
         },
 

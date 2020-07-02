@@ -5,6 +5,7 @@ function createAccountHandler(fetcher) {
     return {
 
         getAccountDetails(accountName) {
+            // console.log(`${ACCOUNT_ENDPOINT}${accountName}`)
             return fetcher.get(`${ACCOUNT_ENDPOINT}${accountName}`)
         },
         
@@ -44,8 +45,8 @@ function createAccountHandler(fetcher) {
         },
         
         getSSOLink(accountName, siteName, target) {
-            if (target) return fetcher.get(`${ACCOUNT_ENDPOINT}${accountName}/link?site_name=${siteName}&target=${target}`)
-            return fetcher.get(`${ACCOUNT_ENDPOINT}${accountName}/link?site_name=${siteName}`)
+            if (target) return fetcher.get(`${ACCOUNT_ENDPOINT}sso/${accountName}/link?site_name=${siteName}&target=${target}`)
+            return fetcher.get(`${ACCOUNT_ENDPOINT}sso/${accountName}/link?site_name=${siteName}`)
         },
         
         resetPasswordLink(accountName) {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",
@@ -14,15 +14,10 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "fetch-mock": "^9.4.0",
     "fetch-mock-jest": "^1.2.7",
     "jest": "^25.4.0",
     "jest-fetch-mock": "^3.0.3",
     "sinon": "^9.0.2"
-  },
-  "jest": {
-    "automock": false,
-    "setupFiles": [
-      "./setupJest.js"
-    ]
   }
 }
