@@ -23,7 +23,7 @@ const Duda = require('duda-api')
 // Initilize API
 const client = Duda(token) 
 
-//Fetach Site
+// Fetch Site
 client.getSite(siteID).then(result => console.log(result))
 ```
 
@@ -48,6 +48,5 @@ In general, the request's path and query paratmeters are passed as agruments and
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-TBD
 
 [MIT](https://choosealicense.com/licenses/mit/)
